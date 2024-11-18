@@ -1,38 +1,129 @@
 @use 'reset.scss';
 
 
-@mixin container($height) {
-  position: relative;
-  max-width: 80%;
-  height: $height;
-  margin-left: auto;
-  margin-right: auto;
-  color: reset.$black;
-}
 
-@mixin titleContainer(){
-  padding-top: 10px;
+
+@mixin containerHeader(){
+  padding-bottom: 20px;
   width: 100%;
   text-align: center;
 }
 
-.skills {
-  @include container(500px);
+.explainContainerWrapper {
+  @include reset.container(80%);
+  display: flex;
+  flex-wrap: wrap;
+  height: 500px;
+  position: relative;
 
-  .header {
-    @include titleContainer();
+  .item {
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 300px;
+    border: 1px solid blue;
+  }
+  .containerHeader {
+    @include containerHeader()
+  }
+
+  @media screen and (max-width: 768px) {
+    .item {
+      width: 100%;
+    }
 
   }
 }
 
-.skill {
-  width: 50%;
-  > .icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: reset.$light-grey;
+
+  .skillContainerWrapper {
+    @include reset.container(60%);
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .containerHeader {
+      @include containerHeader();
+    }
+
+    .headerIcon {
+      position: relative;
+      top: 20px;
+    }
+
+    .item {
+      padding-top: 20px;
+      left: 20px;
+      width: 50%;
+      position: relative;
+    }
+
+    .itemHeader {
+      margin-left: 50px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .itemBody {
+      padding-bottom: 20px;
+      height: 50px;
+      width: 100%;
+      /* 세로 정렬 추가 */
+      display: flex;
+      align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    .itemIcon {
+      width: 50px;
+      min-width: 50px;
+      min-height: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #eeeeee;
+      z-index: 2;
+
+      /* 상하좌우 중앙 정렬 추가 */
+      display: flex;
+      justify-content: center; /* 가로 중앙 정렬 */
+      align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    .itemTitle {
+      position: relative;
+      text-align: start;
+      font-size: 14px;
+      margin-left: 15px;
+      top: 5px;
+    }
+
+    .itemContent {
+      position: relative;
+      top: -10px;
+      font-size: 12px;
+      margin-left: 15px;
+      font-weight: 400;
+    }
+
+    .thinLine {
+      left: 22px;
+      width: 2px;
+      min-height: 10px;
+      height: 60%;
+      max-height: 50%;
+      position: absolute;
+      border-right: 2px dashed lightgray;
+      float: left;
+      margin-top: 10px;
+      z-index: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+      .item {
+        width: 100%;
+      }
+    }
   }
 
 
-}
